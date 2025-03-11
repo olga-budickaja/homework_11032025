@@ -30,7 +30,8 @@ def test_car_speed_negative_distance():
 def test_car_speed_zero_time():
     for i in range(1, 50):
         for j in range(0):
-            raise AssertionError
+            if car_speed(i,j):
+                raise ValueError
 
 if __name__ == '__main__':
     for item in dict(globals()):
@@ -40,3 +41,5 @@ if __name__ == '__main__':
                 func()
             except AssertionError:
                 print(f'Error in test: {item}')
+            except ValueError:
+                print(f'ValueError in test: {item}')
